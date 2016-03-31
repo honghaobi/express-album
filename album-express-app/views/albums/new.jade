@@ -5,8 +5,32 @@ block content
 
   form(action="/albums", method="post")
     div
-      Name
-      input(type="text" name="album_name")
+      h3 Artist:
+        input(type="text" name="album_artist")
+
+    div
+      h3 Name:
+        input(type="text" name="album_name")
+
+    div
+      h3 Genre:
+        input(type="text" name="album_genre")
+
+    div
+      h3 Stars:
+        select(name="album_stars")
+          option(value="1") 1 Star
+          option(value="2") 2 Stars
+          option(value="3") 3 Stars
+          option(value="4") 4 Stars
+          option(value="5") 5 Stars
+
+    div
+      h3 Explicit:
+        h4 explicit
+          input(type="radio" name="album_explicit" value="true")
+        h4 non-explicit
+          input(type="radio" name="album_explicit" value="false")
 
     div
       input(type="submit")
