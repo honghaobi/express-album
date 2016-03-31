@@ -8,7 +8,9 @@ function Albums() {
 
 
 router.get('/albums', function(req, res, next) {
-  res.render('albums/index');
+  Albums().select().then(function (records) {
+    res.render('albums/index', {allAlbums: records});
+  })
 });
 
 router.get('/albums/new', function(req, res, next) {
@@ -20,5 +22,17 @@ router.post('/albums', function(req, res, next) {
     res.redirect('/albums');
   });
 });
+
+router.get('/albums/:id', function(req, res, next) {
+  Albums().where({id: req.params.id}).first().then(function (record) {
+    res.render('albums/show', {theAlbum: record});
+  });
+});
+
+router.get('/albums/:id/edit', function(req, res, next) {
+  Albums().where({id: req.params.id}).first().then(function (record) {
+    res.render('albums/edit', {theAlbum: record});
+  })
+})
 
 module.exports = router;
