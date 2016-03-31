@@ -3,7 +3,7 @@ extends ../layout
 block content
   h1 Edit Album
 
-  form(action="/albums/#{theAlbum.id}/update", method="post" _method="put")
+  form(action="/albums/#{theAlbum.id}/update" + "?_method=put", method="post")
     div
       h3 Artist:
         input(type="text" name="album_artist" value="#{theAlbum.artist}")
