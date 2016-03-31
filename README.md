@@ -232,7 +232,7 @@ participant PostgreSQL
 ```
 
 Embed your image here.
-
+'Look for image in /views/data-sequence-diagram'
 ---
 
 ### Showing all albums on the index page
