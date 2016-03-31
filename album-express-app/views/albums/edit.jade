@@ -6,18 +6,18 @@ block content
   form(action="/albums", method="post")
     div
       h3 Artist:
-        input(type="text" name="album_artist" value=#{album.artist})
+        input(type="text" name="album_artist" value="#{theAlbum.artist}")
 
     div
       h3 Name:
-        input(type="text" name="album_name")
+        input(type="text" name="album_name" value="#{theAlbum.name}")
 
     div
       h3 Genre:
-        input(type="text" name="album_genre")
+        input(type="text" name="album_genre" value="#{theAlbum.genre}")
 
     div
-      h3 Stars:
+      h3 Stars: (Current rating is #{theAlbum.stars} stars)
         select(name="album_stars")
           option(value="1") 1 Star
           option(value="2") 2 Stars
@@ -26,7 +26,7 @@ block content
           option(value="5") 5 Stars
 
     div
-      h3 Explicit:
+      h3 Explicit: (This does contain explicit content: #{theAlbum.explicit})
         h4 explicit
           input(type="radio" name="album_explicit" value="true")
         h4 non-explicit
