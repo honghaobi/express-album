@@ -1,6 +1,12 @@
 extends ../layout
 
 block content
-  h1= theAlbum.name
+  h1 Showing Album: #{theAlbum.name}
+
+  h3 Genre: #{theAlbum.genre}
+  h3 Artist: #{theAlbum.artist}
+  h3 Rating: #{theAlbum.stars} stars
+  h3 This album is explicit: #{theAlbum.explicit}
 
   a(href="/albums/" + theAlbum.id + '/edit') Edit
+  a(href="/albums/" + theAlbum.id + '/delete') Delete

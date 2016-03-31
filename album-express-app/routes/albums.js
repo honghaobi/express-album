@@ -41,4 +41,17 @@ router.post('/albums/:id/edit', function(req, res, next) {
   });
 });
 
+router.get('/albums/:id/delete', function(req, res, next) {
+  Albums().where({id: req.params.id}).first().then(function (record) {
+    res.render('albums/delete', {theAlbum: record});
+  });
+});
+
+router.post('/albums/:id/delete', function(req, res, next) {
+  console.log('delete');
+  Albums().where({id: req.params.id}).del().then(function () {
+    res.redirect('/albums');
+  });
+});
+
 module.exports = router;
