@@ -35,8 +35,8 @@ router.get('/albums/:id/edit', function(req, res, next) {
   })
 })
 
-router.post('/albums/:id/edit', function(req, res, next) {
-  Albums().where({name: req.body.album_name}).update({ artist: req.body.album_artist, name: req.body.album_name, genre: req.body.album_genre, stars: req.body.album_stars, explicit: req.body.album_explicit}).then(function () {
+router.post('/albums/:id/update', function(req, res, next) {
+  Albums().where({id: req.params.id}).update({ artist: req.body.album_artist, name: req.body.album_name, genre: req.body.album_genre, stars: req.body.album_stars, explicit: req.body.album_explicit}).then(function () {
     res.redirect('/albums');
   });
 });
@@ -48,7 +48,6 @@ router.get('/albums/:id/delete', function(req, res, next) {
 });
 
 router.post('/albums/:id/delete', function(req, res, next) {
-  console.log('delete');
   Albums().where({id: req.params.id}).del().then(function () {
     res.redirect('/albums');
   });

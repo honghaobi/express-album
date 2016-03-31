@@ -3,7 +3,7 @@ extends ../layout
 block content
   h1 Edit Album
 
-  form(action="/albums/:id/edit", method="post")
+  form(action="/albums/#{theAlbum.id}/update", method="post" _method="put")
     div
       h3 Artist:
         input(type="text" name="album_artist" value="#{theAlbum.artist}")
@@ -19,18 +19,18 @@ block content
     div
       h3 Stars: (Current rating is #{theAlbum.stars} stars)
         select(name="album_stars")
-          option(value="1" selected ='#{theAlbum.stars}') 1 Star
-          option(value="2" selected ='#{theAlbum.stars}') 2 Stars
-          option(value="3" selected ='#{theAlbum.stars}') 3 Stars
-          option(value="4" selected ='#{theAlbum.stars}') 4 Stars
-          option(value="5" selected ='#{theAlbum.stars}') 5 Stars
+          option(value="1" selected = theAlbum.stars==1) 1 Star
+          option(value="2" selected = theAlbum.stars==2) 2 Stars
+          option(value="3" selected = theAlbum.stars==3) 3 Stars
+          option(value="4" selected = theAlbum.stars==4) 4 Stars
+          option(value="5" selected = theAlbum.stars==5) 5 Stars
 
     div
       h3 Explicit: (This does contain explicit content: #{theAlbum.explicit})
         h4 explicit
-          input(type="radio" name="album_explicit" value="true")
+          input(type="radio" name="album_explicit" checked = theAlbum.explicit value="true")
         h4 non-explicit
-          input(type="radio" name="album_explicit" value="false")
+          input(type="radio" name="album_explicit" checked = theAlbum.explicit value="false")
 
     div
-      input(type="submit")
+      input(type="submit" value='Update Album')

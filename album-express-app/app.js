@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var albums= require('./routes/albums');
+var methodOverride = require('method-override');
 
 var app = express();
 
@@ -22,6 +23,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// override with the X-HTTP-Method-Override header in the request
+app.use(methodOverride('_method'));
 
 app.use('/', routes);
 app.use('/users', users);

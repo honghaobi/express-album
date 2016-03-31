@@ -3,7 +3,7 @@ extends ../layout
 block content
   h1 Showing Album: #{theAlbum.name}
 
-  form(action="/albums/#{theAlbum.id}/delete", method="post")
+  form(action="/albums/#{theAlbum.id}/delete", method="post", _method="delete")
 
     div
-      input(type="submit")
+      input(type="submit" value='Delete')
