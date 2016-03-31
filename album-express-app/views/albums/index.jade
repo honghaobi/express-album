@@ -9,10 +9,14 @@ block content
     thead
       tr
         th ID
-        th Name
+        th Genre
+        th Artist
+        th Album
     tbody
       for album in allAlbums
         tr
           td= album.id
+          td= album.genre
+          td= album.artist
           td
             a(href='/albums/' + album.id)= album.name

@@ -3,7 +3,7 @@ extends ../layout
 block content
   h1 Edit Album
 
-  form(action="/albums", method="post")
+  form(action="/albums/:id/edit", method="post")
     div
       h3 Artist:
         input(type="text" name="album_artist" value="#{theAlbum.artist}")
@@ -19,11 +19,11 @@ block content
     div
       h3 Stars: (Current rating is #{theAlbum.stars} stars)
         select(name="album_stars")
-          option(value="1") 1 Star
-          option(value="2") 2 Stars
-          option(value="3") 3 Stars
-          option(value="4") 4 Stars
-          option(value="5") 5 Stars
+          option(value="1" selected ='#{theAlbum.stars}') 1 Star
+          option(value="2" selected ='#{theAlbum.stars}') 2 Stars
+          option(value="3" selected ='#{theAlbum.stars}') 3 Stars
+          option(value="4" selected ='#{theAlbum.stars}') 4 Stars
+          option(value="5" selected ='#{theAlbum.stars}') 5 Stars
 
     div
       h3 Explicit: (This does contain explicit content: #{theAlbum.explicit})
